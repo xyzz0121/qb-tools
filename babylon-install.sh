@@ -1,7 +1,6 @@
 MONIKER="equinox"
 sudo apt -q update
 sudo apt -qy install curl git jq lz4 build-essential
-sudo apt -qy upgrade
 sudo rm -rf /usr/local/go
 curl -Ls https://go.dev/dl/go1.21.7.linux-amd64.tar.gz | sudo tar -xzf - -C /usr/local
 eval $(echo 'export PATH=$PATH:/usr/local/go/bin' | sudo tee /etc/profile.d/golang.sh)
