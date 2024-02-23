@@ -58,8 +58,6 @@ curl -Ls http://89.58.62.213/genesis.json > $HOME/.babylond/config/genesis.json
 curl -Ls http://89.58.62.213/addrbook.json > $HOME/.babylond/config/addrbook.json
 curl -Ls http://89.58.62.213/config.toml > $HOME/.babylond/config/config.toml
 curl -Ls http://89.58.62.213/app.toml > $HOME/.babylond/config/app.toml
-sed -i -e "s|^seeds = \"3f472746f46493309650e5a033076689996c8881@babylon-testnet.rpc.kjnodes.com:16459\"|seeds =\"49b4685f16670e784a0fe78f37cd37d56c7aff0e@3.14.89.82:26656\"|" $HOME/.babylond/config/config.toml
-
 
 sudo systemctl start babylon.service
 
