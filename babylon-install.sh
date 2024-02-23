@@ -50,11 +50,6 @@ EOF
 sudo systemctl daemon-reload
 sudo systemctl enable babylon.service
 
-# Set node configuration
-babylond config chain-id bbn-test-3
-babylond config keyring-backend test
-babylond config node tcp://localhost:16457
-
 # Initialize the node
 babylond init $MONIKER --chain-id bbn-test-3
 
@@ -64,9 +59,4 @@ curl -Ls http://89.58.62.213/addrbook.json > $HOME/.babylond/config/addrbook.jso
 curl -Ls http://89.58.62.213/config.toml > $HOME/.babylond/config/config.toml
 curl -Ls http://89.58.62.213/app.toml > $HOME/.babylond/config/app.toml
 
-
-
-# Set custom ports
-sed -i -e "s%^proxy_app = \"tcp://127.0.0.1:26658\"%proxy_app = \"tcp://127.0.0.1:16458\"%; s%^laddr = \"tcp://127.0.0.1:26657\"%laddr = \"tcp://127.0.0.1:16457\"%; s%^pprof_laddr = \"localhost:6060\"%pprof_laddr = \"localhost:16460\"%; s%^laddr = \"tcp://0.0.0.0:26656\"%laddr = \"tcp://0.0.0.0:16456\"%; s%^prometheus_listen_addr = \":26660\"%prometheus_listen_addr = \":16466\"%" $HOME/.babylond/config/config.toml
-sed -i -e "s%^address = \"tcp://localhost:1317\"%address = \"tcp://0.0.0.0:16417\"%; s%^address = \":8080\"%address = \":16480\"%; s%^address = \"localhost:9090\"%address = \"0.0.0.0:16490\"%; s%^address = \"localhost:9091\"%address = \"0.0.0.0:16491\"%; s%:8545%:16445%; s%:8546%:16446%; s%:6065%:16465%" $HOME/.babylond/config/app.toml
 sudo systemctl start babylon.service
