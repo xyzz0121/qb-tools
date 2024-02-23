@@ -51,7 +51,7 @@ sudo systemctl daemon-reload
 sudo systemctl enable babylon.service
 
 # Set node configuration
-babylond config chain-id bbn-test-2
+babylond config chain-id bbn-test-3
 babylond config keyring-backend test
 babylond config node tcp://localhost:16457
 
