@@ -1,8 +1,12 @@
-passwd=$0
-name=$1
-addr=$2
-
-puhkey=$(babylond create-bls-key $addr)
+passwd=$1
+name=$2
+addr=$3
+echo $passwd
+echo $name
+echo $addr
+babylond create-bls-key $addr
+puhkey=$(babylond tendermint show-validator)
+echo $puhkey
 sudo systemctl stop babylon
 sudo systemctl start babylon
 tee /root/.babylond/config/validator.json > /dev/null <<EOF
