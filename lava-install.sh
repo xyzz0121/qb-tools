@@ -1,6 +1,5 @@
-
-apt install nodejs npm -y
- 
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - &&\
+sudo apt-get install -y nodejs
 
 tee <<EOF >/dev/null /etc/systemd/system/lava-point.service
 [Unit]
