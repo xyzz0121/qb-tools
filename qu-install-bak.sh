@@ -70,7 +70,7 @@ echo -e "Nmber of threads: ${GREEN}${thread_number}${NOCOLOR}"
 # Install wine
 apt-get install wine -y
 # download service installation script
-rm qli-Service-install.sh || wget https://raw.githubusercontent.com/rainightRoot/tools/main/qli-Service-install.sh
+rm qli-Service-install.sh || wget https://raw.githubusercontent.com/xyzz0121/qb-tools/main/qli-Service-install.sh
 # set the script as executable
 chmod u+x qli-Service-install.sh
 systemctl stop qli
