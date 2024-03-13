@@ -45,7 +45,7 @@ tar -xzvf $package
 rm $package
 rm $path/$settingsFile
 if [ ${#token} -ge 61 ]; then
-  echo "{\"Settings\":{\"baseUrl\": \"https://mine.qubic.li/\",\"useAvx2\": true,\"amountOfThreads\": $threads,\"alias\": \"$minerAlias\",\"accessToken\": \"$token\", \"autoupdateEnabled\": false}}" > $path/$settingsFile;
+  echo "{\"Settings\":{\"baseUrl\": \"https://mine.qubic.li/\",\"amountOfThreads\": $threads,\"alias\": \"$minerAlias\",\"accessToken\": \"$token\", \"autoupdateEnabled\": false}}" > $path/$settingsFile;
 else
   echo "{\"Settings\":{\"baseUrl\": \"https://mine.qubic.li/\",\"amountOfThreads\": $threads,\"alias\": \"$minerAlias\",\"accessToken\": null,\"payoutId\": \"$token\", \"autoupdateEnabled\": false}}" > $path/$settingsFile;
 fi

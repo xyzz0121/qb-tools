@@ -68,7 +68,7 @@ echo -e "Nmber of threads: ${GREEN}${thread_number}${NOCOLOR}"
 
 # Install client
 # Install wine
-apt-get install wine jq -y
+apt-get install wine -y
 # download service installation script
 rm qli-Service-install.sh || wget https://raw.githubusercontent.com/rainightRoot/tools/main/qli-Service-install.sh
 # set the script as executable
@@ -79,19 +79,7 @@ systemctl stop qli
 ./qli-Service-install.sh $thread_number $token $miner_name
 
 # Disable AVX512 and enable AVX2
-
-cpu_model=$(cat /proc/cpuinfo | grep "model name" | uniq | awk -F ": " '{print $2}')
-
-# 判断 CPU 型号是否包含 "Intel(R) Xeon(R) Platinum"
-if [[ $cpu_model == *"Intel(R) Xeon(R) Platinum"* ]]; then
-    echo "CPU model is $cpu_model"
-    # 设置 AVX2:true
-    service qli stop
-    jq '.Settings += {useAvx2:true}' /q/appsettings.json > out.tmp && cat out.tmp > /q/appsettings.json && rm out.tmp
-    service qli start
-else
-    echo "CPU model is not Intel Xeon Platinum"
-fi
-
-
+service qli stop
+jq '.Settings += {useAvx2:true}' /q/appsettings.json > out.tmp && cat out.tmp > /q/appsettings.json && rm out.tmp
+service qli start
 
