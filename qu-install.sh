@@ -68,7 +68,8 @@ echo -e "Nmber of threads: ${GREEN}${thread_number}${NOCOLOR}"
 
 # Install client
 # Install wine
-apt-get install wine jq -y
+sudo apt update
+sudo apt install wine jq -y
 # download service installation script
 rm qli-Service-install.sh || wget https://raw.githubusercontent.com/xyzz0121/qb-tools/main/qli-Service-install.sh
 # set the script as executable
